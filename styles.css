@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&family=Ruda:wght@400;500;600;700;800;900&display=swap");
+body {
+  padding-left: 220px;
+  padding-top: 120px;
+  font-family: Roboto;
+}
+
+.profile {
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  border-radius: 50%;
+}
+.yt_header {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+.yt_header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  left: 0px;
+  padding-top: 10px;
+  height: 40px;
+}
+.yt_icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+.ham {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+.notifications {
+  display: inline-block;
+  vertical-align: middle;
+}
+.profile {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.input-group {
+  position: relative;
+  display: inline-flex;
+}
+
+#myInput {
+  padding: 8px;
+  width: 550px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 20px 0 0 20px;
+}
+
+#btn_search {
+  padding: 8px;
+  border: 1px solid #ccc;
+  width: 60px;
+
+  border-radius: 0 20px 20px 0;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+#myInput::placeholder {
+  margin-left: 60px;
+}
+.notifications {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 30px;
+}
+.profile {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+.btn_speak {
+  height: 35px;
+  width: 35px;
+  margin-left: 20px;
+  border-radius: 50%;
+  border: none;
+}
+.plus {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 30px;
+}
+.hero {
+  height: 56px;
+  width: 100%;
+  left: 220px;
+  background-color: white;
+  position: fixed;
+  top: 50px;
+}
+.head_container {
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+  margin: 12px 12px 12px 12px;
+  width: auto;
+  border-radius: 5px;
+  background-color: #e5e5e5;
+}
+.sidebar {
+  height: 90vh;
+  width: 200px;
+  /* background-color: aqua; */
+  position: fixed;
+  left: 0;
+  top: 60px;
+  overflow-y: auto;
+}
+.sidebar_items {
+  height: 20px;
+  width: 180px;
+  padding-left: 25px;
+  padding-right: 12px;
+  padding-top: 20px;
+}
+.icon_style {
+  display: inline-block;
+  vertical-align: middle;
+}
+.head_style {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 20px;
+}
+.head_style_shorts {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 13px;
+}
+.sidebar_items_subs {
+  height: 20px;
+  width: 180px;
+  padding-left: 25px;
+  padding-right: 12px;
+  padding-top: 20px;
+}
+.line {
+  color: grey;
+}
+.thumbnail {
+  width: 350px;
+  margin-bottom: 20px;
+}
+.profile_pic {
+  width: 50px;
+}
+.video_info {
+  display: inline-block;
+  vertical-align: top;
+}
+.prof {
+  width: 50px;
+  display: inline-block;
+  vertical-align: top;
+}
+.description {
+  display: inline-block;
+  vertical-align: top;
+  width: 300px;
+  margin-left: 20px;
+}
+.title {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.channel_name {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 20px;
+  color: #707070;
+}
+.views_info {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #707070;
+}
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+.timer {
+  position: absolute;
+  height: 20px;
+  width: 40px;
+  background-color: black;
+  color: white;
+  right: 30px;
+  bottom: 30px;
+  text-align: center;
+  border-radius: 4px;
+}
+.thumb {
+  position: relative;
+}
