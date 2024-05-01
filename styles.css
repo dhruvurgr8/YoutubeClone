@@ -98,7 +98,8 @@ body {
   position: fixed;
   top: 50px;
 }
-.head_container {
+
+.hero > div {
   display: inline-block;
   padding: 10px 10px 10px 10px;
   margin: 12px 12px 12px 12px;

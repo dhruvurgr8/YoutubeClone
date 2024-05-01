@@ -4,7 +4,7 @@ let channel_http = "https://www.googleapis.com/youtube/v3/channels?";
 const parentDiv = document.querySelector(".parent");
 
 const searchBtn = document.querySelector("#btn_search");
-let searchQuery = "tseries";
+let searchQuery = "doramon";
 
 // get the search query of the user
 searchBtn.addEventListener("click", () => {
@@ -28,7 +28,6 @@ function fetchData() {
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.items.length !== 0) {
         data.items.forEach((item) => {
           getChannelIcon(item);
@@ -59,6 +58,43 @@ const getChannelIcon = (videoData) => {
 };
 
 // display data
+const displayVideoCard = async (data) => {
+  const stats = await videoStats(data.id.videoId);
+  const views =
+    stats && stats.items && stats.items[0] && stats.items[0].statistics
+      ? formatViews(parseInt(stats.items[0].statistics.viewCount))
+      : "N/A";
+
+  const videoCardHTML = `
+          <div class="wrap" id="${data.id.videoId}" >
+            <div>
+              <img class="thumbnail" src="${data.snippet.thumbnails.high.url}">
+            </div>
+            <div class="prof">
+              <img class="profile_pic" src="${data.channelThumbnail}">
+            </div>
+            <div class="description">
+              <h3 class="title">${data.snippet.title}</h3>
+              <p class="channel_name">${
+                data.snippet.channelTitle
+              }<i class="fa-solid fa-circle-check"></i></p>
+              <p class="views_info">${views} views - ${formatUploadTime(
+    data.snippet.publishedAt
+  )}</p>
+            </div>
+          </div>
+        `;
+  // Append new video card HTML to parentDiv
+  parentDiv.innerHTML += videoCardHTML;
+  parentDiv.addEventListener("click", (e) => {
+    if (e.target.closest(".wrap")) {
+      const clickedVideoId = event.target.closest(".wrap").id;
+      playVideo(clickedVideoId);
+    }
+  });
+};
+
+// function to get the videoStats
 async function videoStats(videoId) {
   try {
     const response = await fetch(
@@ -88,43 +124,6 @@ function formatViews(viewCount) {
   }
 }
 
-// Modify displayVideoCard function to format views
-const displayVideoCard = async (data) => {
-  parentDiv.id = data.id.videoData;
-  const stats = await videoStats(data.id.videoId);
-  const views =
-    stats && stats.items && stats.items[0] && stats.items[0].statistics
-      ? formatViews(parseInt(stats.items[0].statistics.viewCount))
-      : "N/A";
-
-  const videoCardHTML = `
-        <div class="wrap" id="${data.id.videoId}" >
-          <div>
-            <img class="thumbnail" src="${data.snippet.thumbnails.high.url}">
-          </div>
-          <div class="prof">
-            <img class="profile_pic" src="${data.channelThumbnail}">
-          </div>
-          <div class="description">
-            <h3 class="title">${data.snippet.title}</h3>
-            <p class="channel_name">${
-              data.snippet.channelTitle
-            }<i class="fa-solid fa-circle-check"></i></p>
-            <p class="views_info">${views} views - ${formatUploadTime(
-    data.snippet.publishedAt
-  )}</p>
-          </div>
-        </div>
-      `;
-  // Append new video card HTML to parentDiv
-  parentDiv.innerHTML += videoCardHTML;
-  parentDiv.addEventListener("click", (e) => {
-    if (e.target.closest(".wrap")) {
-      const clickedVideoId = event.target.closest(".wrap").id;
-      playVideo(clickedVideoId);
-    }
-  });
-};
 // function to play video
 function playVideo(videoId) {
   const iframe = document.createElement("iframe");
