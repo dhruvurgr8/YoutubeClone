@@ -33,6 +33,9 @@ function fetchData() {
           getChannelIcon(item);
         });
       }
+    })
+    .catch((error) => {
+      console.log("some error occured");
     });
 }
 
@@ -127,6 +130,7 @@ function formatViews(viewCount) {
 // function to play video
 function playVideo(videoId) {
   const iframe = document.createElement("iframe");
+  iframe.classList.add("video-player");
   iframe.width = "560";
   iframe.height = "315";
   iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;

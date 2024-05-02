@@ -50,7 +50,7 @@ body {
 
 #myInput {
   padding: 8px;
-  width: 550px;
+  width: 500px;
   height: 20px;
   border: 2px solid #ccc;
   border-radius: 20px 0 0 20px;
@@ -208,4 +208,22 @@ body {
 }
 .wrap {
   cursor: pointer;
+}
+.video-player {
+  margin: 50px auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .hero {
+    display: none;
+  }
+  .sidebar {
+    display: none;
+  }
+  #myInput {
+    max-width: 40%;
+  }
+  .right_part {
+    display: none;
+  }
 }
