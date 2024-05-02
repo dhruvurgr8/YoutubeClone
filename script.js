@@ -1,4 +1,4 @@
-let api_key = "AIzaSyBrMNRbu0OLjLeCZMGe2LuT6gx43IAodHA";
+let api_key = "AIzaSyBBK6CURnXc7Zq5IXZVuNtR0zBbuP0sMjw";
 let video_http = "https://www.googleapis.com/youtube/v3/search?";
 let channel_http = "https://www.googleapis.com/youtube/v3/channels?";
 const parentDiv = document.querySelector(".parent");
