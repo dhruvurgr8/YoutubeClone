@@ -1,10 +1,15 @@
-let api_key = "AIzaSyBBK6CURnXc7Zq5IXZVuNtR0zBbuP0sMjw";
+let api_key = "AIzaSyBcYpBETHDL0zQbhHTq_ASTY20Sre96v7g";
+// more api -->  AIzaSyBcYpBETHDL0zQbhHTq_ASTY20Sre96v7g
 let video_http = "https://www.googleapis.com/youtube/v3/search?";
 let channel_http = "https://www.googleapis.com/youtube/v3/channels?";
 const parentDiv = document.querySelector(".parent");
+const darkModeBtn = document.querySelector(".darkMode");
+const darkMode = document.querySelector(".dark-container");
+
+// add event listener
 
 const searchBtn = document.querySelector("#btn_search");
-let searchQuery = "doramon";
+let searchQuery = "cartoon";
 
 // get the search query of the user
 searchBtn.addEventListener("click", () => {
@@ -55,6 +60,7 @@ const getChannelIcon = (videoData) => {
   )
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       videoData.channelThumbnail = data.items[0].snippet.thumbnails.default.url;
       displayVideoCard(videoData);
     });
@@ -91,7 +97,7 @@ const displayVideoCard = async (data) => {
   parentDiv.innerHTML += videoCardHTML;
   parentDiv.addEventListener("click", (e) => {
     if (e.target.closest(".wrap")) {
-      const clickedVideoId = event.target.closest(".wrap").id;
+      const clickedVideoId = e.target.closest(".wrap").id;
       playVideo(clickedVideoId);
     }
   });
@@ -129,6 +135,12 @@ function formatViews(viewCount) {
 
 // function to play video
 function playVideo(videoId) {
+  const homeBtn = document.createElement("button");
+  homeBtn.textContent = "Back to Home";
+  homeBtn.classList.add("homeBtn");
+  homeBtn.addEventListener("click", () => {
+    location.reload();
+  });
   const iframe = document.createElement("iframe");
   iframe.classList.add("video-player");
   iframe.width = "560";
@@ -137,6 +149,8 @@ function playVideo(videoId) {
   iframe.allowFullscreen = true;
 
   parentDiv.innerHTML = "";
+  parentDiv.appendChild(homeBtn);
+
   parentDiv.appendChild(iframe);
 }
 
@@ -167,4 +181,4 @@ function formatUploadTime(uploadTime) {
   }
 }
 
-// This is the final code 7:43 pm
+// final
